@@ -1,0 +1,40 @@
+version: '2'
+
+services:
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - 9000:80
+    volumes:
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    volumes_from:
+      - php
+
+  php:
+    build: ./docker/php/
+    volumes:
+      - .:/var/www/html
+      - ./docker/php/custom.ini:/usr/local/etc/php/conf.d/custom.ini
+    links:
+      - database
+      - elasticsearch
+
+    environment:
+      - "DB_PORT=3306"
+      - "DB_HOST=database"
+
+  database:
+     image: mysql:5.7
+     environment:
+       - "MYSQL_ROOT_PASSWORD=common404"
+       - "MYSQL_DATABASE=laravel-elastic"
+     volumes:
+       - ${BACKUP_DATA_PATH}/mysql4:/var/lib/mysql
+     ports:
+       - "33090:3306"
+
+  elasticsearch:
+      image: elasticsearch
+      ports:
+          - "9200:9200"
