@@ -5,8 +5,15 @@ use Elasticsearch\Client;
 
 class Elastic
 {
+    /**
+     * @var Client
+     */
     protected $client;
 
+    /**
+     * Elastic constructor.
+     * @param Client $client
+     */
     public function __construct(Client $client)
     {
         $this->client = $client;
@@ -34,6 +41,12 @@ class Elastic
         return $this->client->delete($parameters);
     }
 
+    /**
+     * Search item in data
+     *
+     * @param array $parameters
+     * @return array
+     */
     public function search(array $parameters)
     {
         return $this->client->search($parameters);
