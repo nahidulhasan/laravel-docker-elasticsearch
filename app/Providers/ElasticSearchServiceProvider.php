@@ -56,5 +56,19 @@ class ElasticSearchServiceProvider extends ServiceProvider
                     ->build()
             );
         });
+
     }
+
+
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides()
+    {
+        return [Elastic::class];
+    }
+
+
 }

@@ -9,6 +9,21 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     /**
+     * @var Elastic
+     */
+    protected $elastic;
+
+    /**
+     * PostController constructor.
+     * @param Elastic $elastic
+     */
+    public  function __construct(Elastic $elastic)
+    {
+        $this->elastic = $elastic;
+
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -92,7 +107,7 @@ class PostController extends Controller
 
     public function search()
     {
-        $elastic = app()->make(Elastic::class);
+       // $elastic = app()->make(Elastic::class);
 
         $search = request('search');
 
@@ -114,7 +129,7 @@ class PostController extends Controller
             ]
         ];
 
-        $response = $elastic->search($parameters);
+        $response = $this->elastic->search($parameters);
 
         $response = $response['hits']['hits'];
 
