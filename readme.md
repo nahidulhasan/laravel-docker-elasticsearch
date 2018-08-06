@@ -21,7 +21,7 @@ elasticsearch:
           - "9200:9200"
 ```
 
-Before running docker compose you have to sure that docker memory size >= 4.0 GB.
+Before running docker compose you have to sure that docker memory size >= 4.0 GB. Otherwise, the elastic search will not run properly.
 
 Now you have to update composer.json file.
 
