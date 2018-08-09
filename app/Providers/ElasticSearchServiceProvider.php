@@ -59,7 +59,6 @@ class ElasticSearchServiceProvider extends ServiceProvider
 
     }
 
-
     /**
      * Get the services provided by the provider.
      *

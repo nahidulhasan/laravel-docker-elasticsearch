@@ -108,8 +108,6 @@ class PostController extends Controller
 
     public function search()
     {
-       // $elastic = app()->make(Elastic::class);
-
         $search = request('search');
 
         $query = [
@@ -135,15 +133,6 @@ class PostController extends Controller
 
         $response = $response['hits']['hits'];
 
-        /*foreach ($response as $key =>  $value){
-
-            echo  'key: '.$key;
-            var_dump($value['_source']);
-        }*/
-
-
         return view('posts.index', ['response' => $response]);
-
-       // return \Response::json(['response' => $response], 200);
     }
 }
