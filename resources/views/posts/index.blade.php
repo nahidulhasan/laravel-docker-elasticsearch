@@ -1,14 +1,26 @@
 @extends('layouts.master')
 
-@section('title','Post list')
+@section('title','Article list')
+
 
 @section('content')
-    @foreach($posts as $post)
-        <b>{{ $post->title }}</b>
-        <p>{{ $post->content }}</p>
 
-    @endforeach
+    @if(\Route::getFacadeRoot()->current()->uri() == 'search')
+        @foreach($response as $post)
 
-    {{ $posts->links() }}
+            <b>{{ $post['_source']['title'] }}</b>
+            <p>{{ $post['_source']['content'] }}</p>
+
+        @endforeach
+
+   @else
+        @foreach($posts as $post)
+            <b>{{ $post->title }}</b>
+            <p>{{ $post->content }}</p>
+
+        @endforeach
+
+        {{ $posts->links() }}
+    @endif
 
 @endsection

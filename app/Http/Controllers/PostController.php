@@ -31,6 +31,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::orderBy('id','desc')->paginate(20);
+
         return view('posts.index', compact('posts'));
     }
 
@@ -129,14 +130,20 @@ class PostController extends Controller
             ]
         ];
 
+
         $response = $this->elastic->search($parameters);
 
         $response = $response['hits']['hits'];
 
-        return $response;
+        /*foreach ($response as $key =>  $value){
 
-        //return $response['hits']['total'];
+            echo  'key: '.$key;
+            var_dump($value['_source']);
+        }*/
 
-        return \Response::json(['response' => $response], 200);
+
+        return view('posts.index', ['response' => $response]);
+
+       // return \Response::json(['response' => $response], 200);
     }
 }
