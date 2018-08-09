@@ -30,7 +30,7 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/posts">Home <span class="sr-only">(current)</span></a>
             </li>
         </ul>
         {{ Form::open(['action' => 'PostController@search','class' => "form-inline my-2 my-lg-0",'method' => 'GET']) }}
