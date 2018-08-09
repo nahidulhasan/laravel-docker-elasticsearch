@@ -72,7 +72,7 @@ http://localhost:9000/posts/create
 
 Now you can search using elastic search. In app elastic folder you will get elastic class. Here I have implement elastic client.
 
-If you want to add demo for Post then run the following command:
+If you want to add demo data for Post then run the following command:
 
 ```sh
 docker-compose exec php php artisan tinker
