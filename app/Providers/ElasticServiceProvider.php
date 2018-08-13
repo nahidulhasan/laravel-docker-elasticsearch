@@ -7,7 +7,7 @@ use App\Post;
 use Elasticsearch\ClientBuilder;
 use Illuminate\Support\ServiceProvider;
 
-class ElasticSearchServiceProvider extends ServiceProvider
+class ElasticServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
