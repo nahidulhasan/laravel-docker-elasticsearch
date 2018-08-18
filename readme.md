@@ -7,7 +7,7 @@ This is a simple repo for practicing elasticsearch with laravel and docker.
 
 Elasticsearch is an open-source, RESTful, distributed search and analytics engine built on Apache Lucene. Since the first version of Elasticsearch was released in 2010, it has quickly become the most popular search engine, and is commonly used for log analytics, full-text search, and operational intelligence use cases. 
 
-In this repo you will get how  you will use elastic search in laravel with docker.
+In this repo you will get how you will use elasticsearch with laravel and docker.
 
 First you have to add elastic search image in docker-compose file.
 
